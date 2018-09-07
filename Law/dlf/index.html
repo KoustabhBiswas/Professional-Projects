@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<base href="/Law/dlf/">
+	<link rel="stylesheet" href="./assets/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="./assets/fonts/css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="./assets/css/admin-home.css">
+	<script src="./assets/js/jquery.js"></script>
+	<script src="./assets/js/bootstrap.js"></script>
+	<script src="./assets/js/angular.js"></script>
+	<script src="./assets/js/angular-route.js"></script>
+</head>
+<body ng-app="dlf">
+	<div class="container-fluid">
+		<div class="row">
+			<!--================================= side bar starts ===================================-->
+			<div class="col-md-2 col-sm-4 col-xs-4 side-bar" id="side-bar">
+				<div class="row side-bar-link-close" ><i class="fa fa-times" onclick="closeSidebar()"></i></div>
+				<div class="row side-bar-link"><a href="/Law/dlf/">Manage Clients</a></div>
+				<div class="row side-bar-link"><a href="/Law/dlf/case">Manage Cases</a></div>
+				<div class="row side-bar-link">Manage Portfolios</div>
+				<div class="row side-bar-link">Manage Appointments</div>
+				<div class="row side-bar-link">Manage </div>
+			</div>
+			<!--================================ side bar ends =======================================-->
+			<!--================================ right bar starts ====================================-->
+			<div class="col-md-10 col-sm-8 col-xs-8 right-bar" ng-view>
+				
+				
+
+			</div>
+
+			<!--================================ right bar ends ====================================-->
+		</div>
+	</div>
+
+</body>
+
+<script type="text/javascript" src="./app.js"></script>
+<!--============================ controllers starts ============================================-->
+<script type="text/javascript" src="./controllers/Clients/ClientController.js"></script>
+<script type="text/javascript" src="./controllers/Cases/CaseController.js"></script>
+<!--============================ controllers ends ============================================-->
+
+<!--============================ servicess starts ============================================-->
+<script type="text/javascript" src="./services/Clients/ClientService.js"></script>
+<script type="text/javascript" src="./services/Cases/CaseService.js"></script>
+<!--============================ services ends ============================================-->
+
+</html>

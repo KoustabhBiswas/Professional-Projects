@@ -1,0 +1,145 @@
+<!--================================ right nav bar starts ================================-->
+				<div class="row nav-bar">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<div class="menu" onclick="openSidebar()">
+							<i class="fa fa-align-justify"></i>
+							
+						</div>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6  right-nav-bar">
+						<a href="" class="profile-pic">
+							<img src="http://localhost/templates/assets/images/Koala.jpg" class="" height="40px" width="40px">
+						</a>
+						<a href="" class="notification">
+							<i class="fa fa-bell"><span class="badge notification-badge">5</span></i>
+						</a>
+					</div> 
+				</div>
+				<!--================================ right nav bar ends ================================-->
+				<!--================================ right bar body starts =============================-->
+				<div class="row box">
+					<div class="col-md-12 col-sm-12 col-xs-12 ">
+						<div class="col-md-12 col-sm-12 col-xs-12 box-body">
+							<div class="row  table-nav-bar">
+								<a href="javascript:void(0)" class="table-nav-bar-links active" id="manage-client" onclick="manageClient(event)">
+									<!-- <i class="glyphicon glyphicon-cog"></i> -->
+									<span>  Manage Clients</span>
+								</a>
+								<a href="javascript:void(0)" class="table-nav-bar-links " id="add-client" onclick="addClient(event)">
+									<!-- <i class="fa fa-user-plus"></i> -->
+									<span>  Add Client</span>
+								</a>
+
+							</div>
+							<!--================================ table starts =============================-->
+							<div class="row table-body" id="table-body">
+								<table class="table table-responsive" >
+									<thead>
+										<tr>
+											<th>Name</th>
+											<th class="mobile-table-column">Mobile</th>
+											<th class="state-table-column">State</th>
+											<th>Action</th>
+										</tr>
+									</thead>
+									<tbody ng-init="client.client()">
+										<tr ng-repeat="client_details in client.clients">
+											<td>{{client_details.first_name}} {{client_details.middle_name}} {{client_details.last_name}}</td>
+											<td class="mobile-table-column">{{client_details.mobile_no}}</td>
+											<td class="state-table-column">{{client_details.state_id_fk}}</td>
+											<td>
+												<i class="fa fa-eye view-profile-icon"></i>
+												<!-- <i class="fa fa-pencil edit-icon" ng-click="client.editClient(client_details.user_id_pk)"></i> -->
+												<i class="fa fa-trash-o delete-icon" data-toggle="modal" ng-click="client.deleteClient(client_details.user_id_pk)" ></i>
+												
+											</td>
+							
+										</tr>
+										
+									</tbody>
+								</table>
+							</div>
+							<!--================================ table ends ===============================-->
+							
+							<!--================================ form starts =============================-->	
+							<div class="row form-body" id="form-body">
+								<form ng-submit="client.addClient()">
+									<div class="col-md-12 col-sm-12 col-xs-12">
+										<div class="col-md-4 col-sm-4 col-xs-12 form-group">
+											<label>First Name :</label>
+											<input type="text" class="form-control test" name="first_name" id="first_name" ng-model="client.addclient.first_name" placeholder="Enter First Name" >
+										</div>
+										<div class="col-md-4 col-sm-4 col-xs-12 form-group">
+											<label>Middle Name :</label>
+											<input type="text" class="form-control" name="middle_name" id="middle_name" ng-model="client.addclient.middle_name" placeholder="Enter Middle Name">
+										</div>
+										<div class="col-md-4 col-sm-4 col-xs-12 form-group">
+											<label>Last Name :</label>
+											<input type="text" class="form-control" name="last_name" id="last_name" ng-model="client.addclient.last_name" placeholder="Enter Last Name">
+										</div>										
+									</div>
+
+									<div class="col-md-12 col-sm-12 col-xs-12">
+										<div class="col-md-6 col-sm-6 col-xs-12 form-group">
+											<label>Mobile Number :</label>
+											<input type="text" class="form-control test" name="mobile_no" id="mobile_no" ng-model="client.addclient.mobile_no" placeholder="Enter Mobile Number">
+										</div>
+										
+										<div class="col-md-6 col-sm-6 col-xs-12 form-group">
+											<label>Landline Number :</label>
+											<input type="text" class="form-control" name="landline_no" id="landline_no" ng-model="client.addclient.landline_no" placeholder="Enter Landline Number" >
+										</div>										
+									</div>
+
+									<div class="col-md-12 col-sm-12 col-xs-12">
+										<div class="col-md-4 col-sm-4 col-xs-12 form-group">
+											<label>Aadhar Number :</label>
+											<input type="text" class="form-control test" name="aadhar_no" id="aadhar_no" ng-model="client.addclient.aadhar_no" placeholder="Enter Aadhar Number" >
+										</div>
+										<div class="col-md-4 col-sm-4 col-xs-12 form-group">
+											<label>Address Line 1 :</label>
+											<input type="text" class="form-control test" name="address1" id="address1" ng-model="client.addclient.address_1" placeholder="Address Line 1">
+										</div>
+										<div class="col-md-4 col-sm-4 col-xs-12 form-group">
+											<label>Address Line 2 :</label>
+											<input type="text" class="form-control" name="address2" id="address2" ng-model="client.addclient.address_2" placeholder="Address Line 2">
+										</div>																		
+									</div>
+
+									<div class="col-md-12 col-sm-12 col-xs-12">
+										<div class="col-md-6 col-sm-6 col-xs-12 form-group">
+											<label>Address Line 3 :</label>
+											<input type="text" class="form-control" name="address3" id="address3" ng-model="client.addclient.address_3" placeholder="Address Line 3">
+										</div>	
+										<div class="col-md-6 col-sm-6 col-xs-12 form-group">
+											<label>State :</label>
+											<input type="text" class="form-control" name="state" ng-model="client.addclient.state_id_fk" id="state">
+										</div>										
+									</div>
+
+									<div class="col-md-12 col-sm-12 col-xs-12">
+										<div class="col-md-6 col-sm-6 col-xs-12 form-group">
+											<label>City :</label>
+											<input type="text" class="form-control test" name="city" id="city" ng-model="client.addclient.city_id_fk" >
+										</div>
+										
+										<div class="col-md-6 col-sm-6 col-xs-12 form-group">
+											<label>Pincode :</label>
+											<input type="text" class="form-control" name="pin_code" id="pin_code" ng-model="client.addclient.pin_code" placeholder="Enter Pin Code">
+										</div>										
+									</div>
+
+									<div class="col-md-12 col-sm-12 col-xs-12">
+										<input type="submit" class="form-control submit_btn" name="" value="Add">
+									</div>
+
+								</form>
+							</div>	
+							<!--================================ form ends ================================-->
+							
+
+						</div>
+					</div>
+				</div>
+				<script type="text/javascript" src="./assets/js/admin-home.js"></script>
+				<!--================================ right bar body ends =============================-->

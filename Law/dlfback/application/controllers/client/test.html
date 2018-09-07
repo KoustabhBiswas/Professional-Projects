@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<input type="text" name="" class="test">
+<input type="text" name="" class="test">
+<input type="text" name="" class="test">
+<input type="text" name="" class="test">
+<input type="text" name="" class="test">
+<input type="text" name="" class="test">
+<input type="text" name="" class="test">
+<button onclick="test1()">Click</button>
+<script type="text/javascript">
+	function test1()
+	{
+		var test = document.getElementsByClassName('test');
+
+		for(var i = 0; i < test.length; i++)
+		{
+			alert(test[i].value);
+		}
+	}
+</script>
+</body>
+</html>

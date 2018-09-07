@@ -1,0 +1,116 @@
+<!--================================ right nav bar starts ================================-->
+<div class="row nav-bar">
+    <div class="col-md-6 col-sm-6 col-xs-6">
+        <div class="menu" onclick="openSidebar()">
+            <i class="fa fa-align-justify"></i>
+            
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-6 col-xs-6  right-nav-bar">
+        <a href="" class="profile-pic">
+            <img src="http://localhost/templates/assets/images/Koala.jpg" class="" height="40px" width="40px">
+        </a>
+        <a href="" class="notification">
+            <i class="fa fa-bell"><span class="badge notification-badge">5</span></i>
+        </a>
+    </div> 
+</div>
+<!--================================ right nav bar ends ================================-->
+<!--================================ right bar body starts =============================-->
+<div class="row box">
+    <div class="col-md-12 col-sm-12 col-xs-12 ">
+        <div class="col-md-12 col-sm-12 col-xs-12 box-body">
+            <div class="row  table-nav-bar">
+                <a href="javascript:void(0)" class="table-nav-bar-links active" id="manage-client" onclick="manageClient(event)">
+                    <!-- <i class="glyphicon glyphicon-cog"></i> -->
+                    <span>  Manage Cases</span>
+                </a>
+                <a href="javascript:void(0)" class="table-nav-bar-links " id="add-client" onclick="addClient(event)">
+                    <!-- <i class="fa fa-user-plus"></i> -->
+                    <span>  Add Case</span>
+                </a>
+            </div>
+            <!--================================ table starts =============================-->
+            <div class="row table-body" id="table-body">
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th>Case No</th>
+                            <th class="mobile-table-column">Appl Name</th>
+                            <!-- <th class="state-table-column">State</th> -->
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Koustabh Biswas</td>
+                            <td class="mobile-table-column">9830778402</td>
+                            <!-- <td class="state-table-column">West Bengal</td> -->
+                            <td>
+                                <i class="fa fa-eye view-profile-icon"></i>
+                                <!-- <i class="fa fa-pencil edit-icon"></i> -->
+                                <i class="fa fa-trash-o delete-icon"></i>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+            <!--================================ table ends ===============================-->
+            <!--================================ form starts =============================-->	
+            <div class="row form-body" id="form-body">
+                <form ng-submit="case.addCase()">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-md-4 col-sm-4 col-xs-12 form-group">
+                            <label>Case Number :</label>
+                            <input type="text" class="form-control test" name="case_no" id="case_no" ng-model="case.add_case.case_no" placeholder="Enter Case Number" >
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12 form-group">
+                            <label>Applicant  Name :</label>
+                            <input type="text" class="form-control" name="appl_name" id="appl_name" ng-model="case.add_case.appl_name" placeholder="Enter Middle Name">
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12 form-group">
+                            <label>Choose Client :</label>
+                            <select class="form-control" name="client_id" id="client_id" ng-model="case.add_case.client_id" ng-init="case.getAllClients()">
+                                <option value="">Select Client</option>
+                                <option ng-repeat="client in case.allClients">{{client.first_name}} {{client.middle_name}} {{client.last_name}}</option>
+                            </select>
+                        </div>										
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label>Case Status :</label>
+                            <select class="form-control" name="case_status" id="case_status" ng-model="case.add_case.case_status" ng-init="case.caseStatus()">
+                                <option value="">Select Status</option>
+                                <option ng-repeat="status in case.status" value="{{status.case_status_id_pk}}">
+                                    {{status.case_status_desc}}
+                                </option>
+                            </select>
+                        </div>
+                        
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label>Case File Date :</label>
+                            <input type="date" class="form-control" name="case_file_date" id="case_file_date" ng-model="case.add_case.case_file_date" placeholder="Enter Landline Number" >
+                        </div>										
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <input type="submit" class="form-control submit_btn" name="" value="Add">
+                    </div>
+
+                </form>
+            </div>	
+            <!--================================ form ends ================================-->
+            
+
+        </div>
+    </div>
+</div>
+
+<!--================================ right bar body ends =============================-->
+
+
+</div>
+<script type="text/javascript" src="./assets/js/admin-home.js"></script>
+<!--================================ right bar ends ====================================-->
