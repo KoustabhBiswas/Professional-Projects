@@ -66,23 +66,30 @@
 								<form ng-submit="client.addClient()">
 									<div class="col-md-12 col-sm-12 col-xs-12">
 										<div class="col-md-4 col-sm-4 col-xs-12 form-group">
-											<label>First Name :</label>
-											<input type="text" class="form-control test" name="first_name" id="first_name" ng-model="client.addclient.first_name" placeholder="Enter First Name" >
+											<label>First Name<span class="star">*</span> :</label>
+											<input type="text" class="form-control test" name="first_name" id="first_name"
+													ng-model="client.addclient.first_name" placeholder="Enter First Name" >
+											<span class="error">{{first_name_err}}</span>
 										</div>
 										<div class="col-md-4 col-sm-4 col-xs-12 form-group">
 											<label>Middle Name :</label>
-											<input type="text" class="form-control" name="middle_name" id="middle_name" ng-model="client.addclient.middle_name" placeholder="Enter Middle Name">
+											<input type="text" class="form-control" name="middle_name" id="middle_name" 
+													ng-model="client.addclient.middle_name" placeholder="Enter Middle Name">
 										</div>
 										<div class="col-md-4 col-sm-4 col-xs-12 form-group">
-											<label>Last Name :</label>
-											<input type="text" class="form-control" name="last_name" id="last_name" ng-model="client.addclient.last_name" placeholder="Enter Last Name">
+											<label>Last Name<span class="star">*</span> :</label>
+											<input type="text" class="form-control" name="last_name" id="last_name" 
+													ng-model="client.addclient.last_name" placeholder="Enter Last Name">
+											<span class="error">{{last_name_err}}</span>
 										</div>										
 									</div>
 
 									<div class="col-md-12 col-sm-12 col-xs-12">
 										<div class="col-md-6 col-sm-6 col-xs-12 form-group">
-											<label>Mobile Number :</label>
-											<input type="text" class="form-control test" name="mobile_no" id="mobile_no" ng-model="client.addclient.mobile_no" placeholder="Enter Mobile Number">
+											<label>Mobile Number<span class="star">*</span> :</label>
+											<input type="text" class="form-control test" name="mobile_no" id="mobile_no" 
+													ng-model="client.addclient.mobile_no" placeholder="Enter Mobile Number">
+											<span class="error">{{mobile_no_err}}</span>
 										</div>
 										
 										<div class="col-md-6 col-sm-6 col-xs-12 form-group">
@@ -113,14 +120,21 @@
 										</div>	
 										<div class="col-md-6 col-sm-6 col-xs-12 form-group">
 											<label>State :</label>
-											<input type="text" class="form-control" name="state" ng-model="client.addclient.state_id_fk" id="state">
+											<select class="form-control" name="state" id="state" ng-model="client.addclient.state_id_fk" 
+													ng-init="client.getStates()" ng-change="client.getCityByState()">
+												<option value="">Select State</option>	
+												<option ng-repeat="state in client.states" value="{{state.state_id}}">{{state.state_name}}</option>
+											</select>
 										</div>										
 									</div>
 
 									<div class="col-md-12 col-sm-12 col-xs-12">
 										<div class="col-md-6 col-sm-6 col-xs-12 form-group">
 											<label>City :</label>
-											<input type="text" class="form-control test" name="city" id="city" ng-model="client.addclient.city_id_fk" >
+											<select class="form-control test" name="city" id="city" ng-model="client.addclient.city_id_fk" >
+												<option value="">Select City</option>
+												<option ng-repeat="cities in client.cities" value="{{cities.city_name}}">{{cities.city_name}}</option>
+											</select>
 										</div>
 										
 										<div class="col-md-6 col-sm-6 col-xs-12 form-group">

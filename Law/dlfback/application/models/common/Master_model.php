@@ -36,4 +36,26 @@ class Master_model extends CI_Model
 							->get();
 		return $status->result_array();
 	}
+	function get_states()
+	{
+
+		$states = $this->db->select('*')
+						   ->from('states')
+						   ->order_by('state_name','asc')
+						  
+						   ->get();
+		return $states->result_array();
+	}
+	function get_city_by_state($state_id)
+	{
+		$cities = $this->db->select('*')
+						   ->from('cities')
+						   ->where(
+						   		array(
+						   			'state_id' => $state_id
+						   		)
+						   )
+						   ->get();
+		return $cities->result_array();
+	}
 }

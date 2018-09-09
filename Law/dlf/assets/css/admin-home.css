@@ -113,6 +113,12 @@ a:hover{
 	margin-bottom: 5%;
 	
 }
+.error,
+.star
+{
+	color: red;
+	font-weight: bold;
+}
 .table-nav-bar{
 	background-color: #FF0A43;
 	height: 39px;
