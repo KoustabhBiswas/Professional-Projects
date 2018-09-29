@@ -29,3 +29,16 @@ function manageClient(e){
 	document.getElementById('manage-client').style.textDecoration = "none";
 	document.getElementById('manage-client').style.color = "white";
 }
+/*var container = document.getElementById('editor');
+var options = {
+	debug: 'info',
+	modules: {
+	  toolbar: '#toolbar'
+	},
+	placeholder: 'Compose an epic...',
+	readOnly: true,
+	theme: 'bubble'
+  };
+  var editor = new Quill('#editor', options);*/
+//var editor = new Quill(container);
+

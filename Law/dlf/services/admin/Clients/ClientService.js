@@ -1,5 +1,5 @@
 app.service('ClientService',function($http,$q){
-	var baseUrl = "http://localhost/Law/dlfback/";
+	var baseUrl = "http://localhost/law/dlfback/";
 	this.getClients = function(){
 		var defer = $q.defer();
 		$http.get(baseUrl + 'client/ClientController/index').then(function(resp){

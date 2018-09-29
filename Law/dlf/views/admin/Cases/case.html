@@ -71,9 +71,10 @@
                         </div>
                         <div class="col-md-4 col-sm-4 col-xs-12 form-group">
                             <label>Choose Client :</label>
-                            <select class="form-control" name="client_id" id="client_id" ng-model="case.add_case.client_id" ng-init="case.getAllClients()">
+                            <select class="form-control" name="client_id" id="client_id"  ng-init="case.getAllClients()" 
+                                    ng-model="case.add_case.client_id">
                                 <option value="">Select Client</option>
-                                <option ng-repeat="client in case.allClients">{{client.first_name}} {{client.middle_name}} {{client.last_name}}</option>
+                                <option ng-repeat="client in case.allClients" value="{{client.user_id_pk}}">{{client.first_name}} {{client.middle_name}} {{client.last_name}}</option>
                             </select>
                         </div>										
                     </div>
@@ -91,7 +92,8 @@
                         
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                             <label>Case File Date :</label>
-                            <input type="date" class="form-control" name="case_file_date" id="case_file_date" ng-model="case.add_case.case_file_date" placeholder="Enter Landline Number" >
+                            <input type="text" class="form-control" name="case_file_date" id="case_file_date" 
+                                ng-model="case.add_case.case_file_date" placeholder="Enter case file date" readonly>
                         </div>										
                     </div>
 
@@ -113,4 +115,5 @@
 
 </div>
 <script type="text/javascript" src="./assets/js/admin-home.js"></script>
+<script type="text/javascript" src="./assets/js/case/js/form.js"></script>
 <!--================================ right bar ends ====================================-->

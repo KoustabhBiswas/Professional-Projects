@@ -1,0 +1,103 @@
+<!-- css link starts -->
+<link rel="stylesheet" type="text/css" href="./assets/css/register.css">
+<!-- css link ends -->
+<!-- html body starts -->
+
+<div class="col-md-8 col-sm-8 col-xs-10 register_main_body" style="">
+			<div class="row register_header">
+				<h3>Register Here</h3>
+			</div>
+			<form ng-submit="register.addUser()">
+			<div class="row register_body">
+				<div class="col-md-4 col-sm-12 col-xs-12">
+					<div class="form-group">
+						<label>First Name:</label>
+						<input type="text" ng-model="register.user.first_name" class="form-control" placeholder="First Name">
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-12 col-xs-12">
+					<div class="form-group">
+						<label>Middle Name:</label>
+						<input type="text" ng-model="register.user.middle_name" class="form-control" placeholder="Middle Name">
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-12 col-xs-12">
+					<div class="form-group">
+						<label>Last Name:</label>
+						<input type="text" ng-model="register.user.last_name" class="form-control" placeholder="Last Name">
+					</div>
+				</div>
+			</div>
+
+			<div class="row register_body">
+				<div class="col-md-4 col-sm-12 col-xs-12">
+					<div class="form-group">
+						<label>Mobile Number:</label>
+						<input type="text" ng-model="register.user.mobile_no" class="form-control" placeholder="Mobile Number">
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-12 col-xs-12">
+					<div class="form-group">
+						<label>Landline Number:</label>
+						<input type="text" ng-model="register.user.landline_no" class="form-control" placeholder="Landline Number">
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-12 col-xs-12">
+					<div class="form-group">
+						<label>Aadhar  Number:</label>
+						<input type="text" ng-model="register.user.aadhar_no" class="form-control" placeholder="Aadhar Number">
+					</div>
+<!-- html body ends -->
+				</div>
+			</div>
+
+			<div class="row register_body">
+				
+				<div class="col-md-6 col-sm-12 col-xs-12">
+					<div class="form-group">
+						<label>Address Line 1:</label>
+						<textarea ng-model="register.user.address_1" class="form-control" 
+								placeholder="Address Line 1" rows="5" cols="5" ></textarea>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-12 col-xs-12">
+					<div class="form-group">
+						<label>Address Line 2:</label>
+						<textarea ng-model="register.user.address_2" class="form-control" 
+								placeholder="Address Line 2" rows="5" cols="5" ></textarea>
+					</div>
+				</div>
+			</div>
+
+			<div class="row register_body">
+				<div class="col-md-4 col-sm-12 col-xs-12">
+					<div class="form-group">
+						<label>State:</label>
+						<select class="form-control" ng-model="register.user.state_id_fk" ng-init="register.getStates()" ng-change="register.getCityByState()">
+							<option value="">Select</option>
+							<option ng-repeat="state in register.states" value="{{state.state_id}}">{{state.state_name}}</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-12 col-xs-12">
+					<div class="form-group">
+						<label>City:</label>
+						<select class="form-control" ng-model="register.user.city_id_fk">
+							<option  value="">Select</option>
+							<option ng-repeat="cities in register.cities" value="{{cities.city_name}}">{{cities.city_name}}</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-12 col-xs-12">
+					<div class="form-group">
+						<label>Pincode:</label>
+						<input type="text" ng-model="register.user.pin_code" class="form-control" placeholder="Pincode">
+					</div>
+				</div>
+			</div>
+
+			<div class="row" style="text-align: center;">
+				<input type="submit" name="" value="Register" class="btn btn-primary register_btn">
+			</div>
+		</form>
+		</div>

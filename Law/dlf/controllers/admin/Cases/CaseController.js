@@ -1,8 +1,9 @@
-app.controller('CaseController',function(CaseService,$scope,$window){
+app.controller('CaseController',function(CaseService,$scope,$window,CSRF_TOKEN){
     var self = this;
     self.clients = {};
     self.status = {};
     self.allClients = {};
+    self.add_case = {};
     self.caseStatus = function()
                     {
                     
@@ -15,11 +16,21 @@ app.controller('CaseController',function(CaseService,$scope,$window){
                     }
     self.getAllClients = function()
                     {
-                    
-                       
+                        console.log("HELLO");
+                        console.log("csrf" + CSRF_TOKEN);
                         CaseService.getAllClients().then(function(resp){
                             self.allClients = resp;
                         });
+                    }
+    self.addCase = function()
+                    {
+                        CaseService
+                            .addCase(self.add_case)
+                                .then(
+                                    function(resp){
+                                        console.log(resp);
+                                    //$window.location.href = "/Law/dlf/case"; 
+                                    });
                     }
 
 });

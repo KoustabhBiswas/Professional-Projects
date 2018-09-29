@@ -1,0 +1,28 @@
+<!-- login portal body starts -->
+<div class="col-md-4 col-sm-4 col-xs-12 login-body">
+    <div class="row login-header">
+        <h3>Log In Portal</h3>
+    </div>
+    <form ng-submit="login.login()">
+        <div class="col-md-12 col-sm-12 col-xs-12 login-footer">
+            <div class="form-group ">
+                <label>Username:</label>
+                <input type="text" name="user_name" class="form-control" 
+                        ng-model="login.credentials.username" placeholder="Enter Username">
+            </div>
+            <div class="form-group">
+                <label>Password:</label>
+                <input type="password" name="password" class="form-control" 
+                        ng-model="login.credentials.password" placeholder="Enter Password">
+            </div>
+            <div class="form-group">
+                
+                <input type="submit" name="" class="form-control btn login-btn" value="Log-In">
+            </div>
+        </div>
+    </form>
+    <div class="col-md-12 col-sm-12 col-xs-12 ">
+        <p>Are you not registered with us ? <span> </span><a href="">Register Here</a></p>
+    </div>
+</div>
+<!-- login portal body ends -->

@@ -1,0 +1,44 @@
+*
+{
+	font-family:  monospace;
+}
+.register_main_body
+{
+	border: 1px solid #FE2E1B;
+	border-radius: 7px ;
+	position: absolute;
+	margin-left: 7%;
+	margin-top: 1%;
+	box-shadow: 4px 2px 8px #FE2E1B, -3px -2px 16px #FE2E1B;
+	
+}
+.register_header
+{
+	background-color: #FE2E1B;
+	border-top-left-radius: 6px ;
+	border-top-right-radius: 6px ;
+	color: white;
+	text-align: center;
+	margin-bottom: 3%;
+}
+.register_body
+{
+	margin-bottom: 1%;
+}
+textarea
+{
+	resize: none;
+}
+.register_btn
+{
+	margin-bottom: 3%;
+	padding: 7px 25px ;
+	font-size: 18px;
+}
+@media only screen and (max-width: 770px)
+{
+	.register_main_body
+	{
+		margin-left: 7%;
+	}
+}

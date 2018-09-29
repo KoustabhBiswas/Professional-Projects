@@ -30,7 +30,7 @@ class ClientController extends CI_Controller
 			'role' => "Client"
 		);
 		$this->cl_model->update_client($client_update,$client_id);
-		echo json_encode($client_id,JSON_PRETTY_PRINT);
+		echo json_encode($client,JSON_PRETTY_PRINT);
 	}
 	function delete_client($client_id){
 		$this->cl_model->delete_client($client_id);

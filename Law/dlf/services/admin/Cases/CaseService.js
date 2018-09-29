@@ -1,5 +1,5 @@
 app.service('CaseService',function($http,$q){
-    var url = "http://localhost/Law/dlfback/";
+    var url = "http://localhost/law/dlfback/";
     this.getCaseStatus = function()
                          {
                              var defer = $q.defer();
@@ -16,7 +16,9 @@ app.service('CaseService',function($http,$q){
     this.getAllClients = function()
                          {
                              var defer = $q.defer();
-                             $http.get(url + 'common/Master_controller/get_client').then(
+                             $http
+                                .get(url + 'common/Master_controller/get_client')
+                                    .then(
                                  function(resp){
                                     defer.resolve(resp.data);
                                  },
@@ -26,4 +28,20 @@ app.service('CaseService',function($http,$q){
                              );
                             return  defer.promise;
                          }
+    this.addCase = function(cases)
+                   {
+                       var defer = $q.defer();
+                       $http
+                        .post(url + 'case/CaseController/index',cases)
+                            .then(
+                                function(resp)
+                                {
+                                    defer.resolve(resp.data);
+                                },
+                                function(xhr)
+                                {
+                                    defer.reject();
+                                }); 
+                                return defer.promise;
+                   }
 });
