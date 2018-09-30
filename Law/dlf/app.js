@@ -1,14 +1,14 @@
-var app = angular.module('dlf',['ngRoute','angular-md5']);
+var app = angular.module('dlf',['ngRoute','angular-md5','ngCookies']);
 
 app.config(function($routeProvider,$locationProvider){
 	
 	$locationProvider.html5Mode(true);
 	$routeProvider
-		.when('/',{
+		.when('/admin',{
 			templateUrl: 'views/admin/Clients/client.html',
 			 controller: 'ClientController as client'
 		})
-		.when('/case',{
+		.when('/admin/case',{
 			templateUrl: 'views/admin/Cases/case.html',
 			controller: 'CaseController as case'
 		})
@@ -19,20 +19,36 @@ app.config(function($routeProvider,$locationProvider){
 		.when('/register',{
 			templateUrl: 'views/register.html',
 			controller: 'RegisterController as register'
+		})
+		.when('/logout',{
+			templateUrl: 'views/logout.html',
+			controller: 'LogoutController as logout'
+			
 		});
 	
 });
-app.run(function($rootScope,$location){
+app.run(function($rootScope,$location,$cookieStore){
 	
 	var url = $location.path();
-	var subUrl = url.split("/");
-	console.log(subUrl[1]);
-	if(subUrl[1] == 'login' || subUrl[1] == 'register')
+	var subUrl = url.split('/');
+	$rootScope.currentUser = $cookieStore.get('currentUser');
+	console.log($cookieStore.get('currentUser'));
+	
+	if($rootScope.currentUser)
 	{
-		$rootScope.loginTemplateFlag = '1';
+		$rootScope.loginTemplateFlag = '0';
+		$location.path('/admin');
 	}
 	else
 	{
-		$rootScope.loginTemplateFlag = '0';
+		if(subUrl[1] == 'login')
+		{
+			$location.path('/login');
+		}
+		else
+		{
+			$location.path('/register');
+
+		}
 	}
 });

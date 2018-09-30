@@ -32,4 +32,13 @@ class Client_model extends CI_Model
 				 ->delete('users');
 		return true;
 	}
+	function check_duplicate_mail($mail)
+	{
+		$query = $this->db->select('email')
+						  ->from('users')
+						  ->where('email',$mail)
+						  ->get();
+		return $query->result_array();
+
+	}
 }

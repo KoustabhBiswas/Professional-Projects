@@ -5,6 +5,9 @@
     </div>
     <form ng-submit="login.login()">
         <div class="col-md-12 col-sm-12 col-xs-12 login-footer">
+            <div class="alert alert-danger" ng-show="loginFlag == 0">
+                Username / Password not matched
+            </div>
             <div class="form-group ">
                 <label>Username:</label>
                 <input type="text" name="user_name" class="form-control" 
@@ -22,7 +25,7 @@
         </div>
     </form>
     <div class="col-md-12 col-sm-12 col-xs-12 ">
-        <p>Are you not registered with us ? <span> </span><a href="">Register Here</a></p>
+        <p>Are you not registered with us ? <span> </span><a href="/law/dlf/register">Register Here</a></p>
     </div>
 </div>
 <!-- login portal body ends -->

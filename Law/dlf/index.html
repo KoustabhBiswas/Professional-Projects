@@ -17,19 +17,20 @@
 	<script src="https://cdn.ckeditor.com/4.10.1/standard/ckeditor.js"></script>
 	<script src="./assets/js/angular.js"></script>
 	<script src="./assets/js/angular-route.js"></script>
+	<script src="./assets/js/angular-cookies.js"></script>
 	<script src="./assets/js/angular-md5.js"></script>
 </head>
 <body ng-app="dlf">
 	<div class="container-fluid">
 		<div class="row">
 			<!--================================= side bar starts ===================================-->
-			<div class="col-md-2 col-sm-4 col-xs-4 side-bar" id="side-bar" ng-show="loginTemplateFlag == 0">
+			<div class="col-md-2 col-sm-4 col-xs-4 side-bar" id="side-bar" ng-hide="loginTemplateFlag == 1">
 				<div class="row side-bar-link-close" ><i class="fa fa-times" onclick="closeSidebar()"></i></div>
-				<div class="row side-bar-link"><a href="/Law/dlf/">Manage Clients</a></div>
-				<div class="row side-bar-link"><a href="/Law/dlf/case">Manage Cases</a></div>
+				<div class="row side-bar-link"><a href="/law/dlf/admin">Manage Clients</a></div>
+				<div class="row side-bar-link"><a href="/law/dlf/admin/case">Manage Cases</a></div>
 				<div class="row side-bar-link">Manage Portfolios</div>
 				<div class="row side-bar-link">Manage Appointments</div>
-				<div class="row side-bar-link">Manage </div>
+				<div class="row side-bar-link"><a href="/law/dlf/logout">Log Out</a> </div>
 			</div>
 			<!--================================ side bar ends =======================================-->
 			<!--================================ right bar starts ====================================-->
@@ -51,6 +52,7 @@
 <script type="text/javascript" src="./controllers/admin/Clients/ClientController.js"></script>
 <script type="text/javascript" src="./controllers/admin/Cases/CaseController.js"></script>
 <script type="text/javascript" src="./controllers/LoginController.js"></script>
+<script type="text/javascript" src="./controllers/LogoutController.js"></script>
 <script type="text/javascript" src="./controllers/RegisterController.js"></script>
 <!--============================ controllers ends ============================================-->
 

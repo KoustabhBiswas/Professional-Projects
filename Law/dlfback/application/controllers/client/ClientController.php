@@ -21,17 +21,28 @@ class ClientController extends CI_Controller
 		echo json_encode($clients,JSON_PRETTY_PRINT);
 	}
 	function insert_client(){
+		$fail_status = 0;
+		$success_status = 1;
 		$client = json_decode(file_get_contents('php://input',TRUE));
-		$password = "password";		
-		$client_id = $this->cl_model->insert_client($client);
-		$client_update = array(
-			// 'password' => password_hash($password,PASSWORD_DEFAULT),
+		$password = "password";
+		$check_mail = $this->cl_model->check_duplicate_mail($client->email);		
+		if(count($check_mail) > 0)
+		{
+			echo json_encode($fail_status,JSON_PRETTY_PRINT);
+		}
+		else
+		{
+			$client_id = $this->cl_model->insert_client($client);
+			$client_update = array(
+			
 			'password' => md5($password),
 			'active_status' => '0',
 			'role' => "Client"
-		);
-		$this->cl_model->update_client($client_update,$client_id);
-		echo json_encode($client,JSON_PRETTY_PRINT);
+			);
+			$this->cl_model->update_client($client_update,$client_id);
+			echo json_encode($success_status,JSON_PRETTY_PRINT);
+		}
+		
 	}
 	function delete_client($client_id){
 		$this->cl_model->delete_client($client_id);

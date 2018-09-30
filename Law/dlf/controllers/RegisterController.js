@@ -1,8 +1,9 @@
-app.controller('RegisterController',function(RegisterService,$scope,$window,$location,md5){
+app.controller('RegisterController',function(RegisterService,$scope,$rootScope,$window,$location,md5){
 	var self = this;
 	self.states = {};
 	self.cities = {};
 	self.user = {};
+	$rootScope.loginTemplateFlag = '1';
 	self.getStates = function(){
 		RegisterService.getStates().then(function(resp){
 			
@@ -26,10 +27,18 @@ app.controller('RegisterController',function(RegisterService,$scope,$window,$loc
 	}
 
 	self.addUser = function(){
-		console.log(self.user);
+		
 		RegisterService.addClient(self.user).then(function(data){
 			console.log(data);
-			$window.location.href = "/law/dlf";
+			if(data == 0)
+			{
+				$scope.existingEmail = "Email id already exists";
+			}
+			else
+			{
+				$window.location.href = "/law/dlf";
+
+			}
 		});
 		
 	}
