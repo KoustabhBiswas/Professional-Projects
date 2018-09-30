@@ -12,10 +12,21 @@ class LoginController extends CI_Controller
 	{
 		# code...
 		parent::__construct();
+		$this->load->model('login_model');
 	}
 	function index()
 	{
+		$fail_status = 0;
 		$credentials = json_decode(file_get_contents("php://input",true));
-		echo json_encode($credentials);
+		$check_credentials = $this->login_model->check_credentials($credentials[0],$credentials[1]);
+		if(count($check_credentials) > 0)
+		{
+			echo json_encode($check_credentials);
+			
+		}
+		else
+		{
+			echo json_encode($fail_status);
+		}
 	}
 }

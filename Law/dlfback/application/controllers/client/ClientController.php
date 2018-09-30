@@ -25,7 +25,8 @@ class ClientController extends CI_Controller
 		$password = "password";		
 		$client_id = $this->cl_model->insert_client($client);
 		$client_update = array(
-			'password' => password_hash($password,PASSWORD_DEFAULT),
+			// 'password' => password_hash($password,PASSWORD_DEFAULT),
+			'password' => md5($password),
 			'active_status' => '0',
 			'role' => "Client"
 		);
