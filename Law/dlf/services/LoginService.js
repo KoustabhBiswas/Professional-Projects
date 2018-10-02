@@ -1,5 +1,5 @@
 app.service('LoginService',function($q,$http){
-    var baseUrl = "http://localhost/law/dlfback/";
+    var baseUrl = "dlfback/";
     this.login = function(credentials)
                  {
                      var defer = $q.defer();

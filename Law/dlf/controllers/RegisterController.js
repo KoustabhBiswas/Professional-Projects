@@ -36,7 +36,7 @@ app.controller('RegisterController',function(RegisterService,$scope,$rootScope,$
 			}
 			else
 			{
-				$window.location.href = "/law/dlf";
+				$window.location.href = "/law/dlf/login";
 
 			}
 		});

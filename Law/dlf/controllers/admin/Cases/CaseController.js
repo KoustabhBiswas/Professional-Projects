@@ -1,4 +1,4 @@
-app.controller('CaseController',function(CaseService,$scope,$window,CSRF_TOKEN){
+app.controller('CaseController',function(CaseService,$scope,$window){
     var self = this;
     self.clients = {};
     self.status = {};
@@ -17,7 +17,7 @@ app.controller('CaseController',function(CaseService,$scope,$window,CSRF_TOKEN){
     self.getAllClients = function()
                     {
                         console.log("HELLO");
-                        console.log("csrf" + CSRF_TOKEN);
+                        // console.log("csrf" + CSRF_TOKEN);
                         CaseService.getAllClients().then(function(resp){
                             self.allClients = resp;
                         });
@@ -29,7 +29,7 @@ app.controller('CaseController',function(CaseService,$scope,$window,CSRF_TOKEN){
                                 .then(
                                     function(resp){
                                         console.log(resp);
-                                    //$window.location.href = "/Law/dlf/case"; 
+                                        $window.location.href = "/law/dlf/case"; 
                                     });
                     }
 

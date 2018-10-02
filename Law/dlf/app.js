@@ -1,6 +1,6 @@
 var app = angular.module('dlf',['ngRoute','angular-md5','ngCookies']);
 
-app.config(function($routeProvider,$locationProvider){
+app.config(function($routeProvider,$locationProvider,$httpProvider){
 	
 	$locationProvider.html5Mode(true);
 	$routeProvider
@@ -26,29 +26,48 @@ app.config(function($routeProvider,$locationProvider){
 			
 		});
 	
+	
 });
+
+
 app.run(function($rootScope,$location,$cookieStore){
 	
 	var url = $location.path();
-	var subUrl = url.split('/');
+	//var subUrl = url.split('/');
 	$rootScope.currentUser = $cookieStore.get('currentUser');
 	console.log($cookieStore.get('currentUser'));
-	
-	if($rootScope.currentUser)
+	var permittedUrl = ['/login','/register'];
+	if(!$rootScope.currentUser)
 	{
-		$rootScope.loginTemplateFlag = '0';
-		$location.path('/admin');
-	}
-	else
-	{
-		if(subUrl[1] == 'login')
+		var i = $.inArray(url,permittedUrl);
+		if(i == -1)
 		{
 			$location.path('/login');
+			
 		}
 		else
 		{
-			$location.path('/register');
+			console.log("HEY");
+			 $location.path();
 
 		}
 	}
+	// if($rootScope.currentUser)
+	// {
+	// 	$rootScope.loginTemplateFlag = '0';
+	// 	$location.path();
+	// }
+	// else
+	// {
+	// 	//$location.path();
+	// 	if(subUrl[1] == 'register')
+	// 	{
+	// 		$location.path('/register');
+	// 	}
+	// 	else
+	// 	{
+	// 		$location.path('/login');
+
+	// 	}
+	// }
 });

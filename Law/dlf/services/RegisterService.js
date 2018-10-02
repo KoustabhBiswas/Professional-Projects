@@ -1,5 +1,5 @@
 app.service('RegisterService',function($q,$http){
-	var baseUrl = "http://localhost/law/dlfback/";
+	var baseUrl = "dlfback/";
 	this.getStates = function(){
 		var defer = $q.defer();
 		$http
