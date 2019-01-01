@@ -1,5 +1,6 @@
-app.service('RegisterService',function($q,$http){
-	var baseUrl = "dlfback/";
+app.service('RegisterService',function($q,$http,$location){
+	var host = $location.host();
+	var baseUrl = "http://"+host+"/law/dlfback/";
 	this.getStates = function(){
 		var defer = $q.defer();
 		$http
@@ -34,7 +35,7 @@ app.service('RegisterService',function($q,$http){
 	}
 	this.addClient = function(client){
 		var defer = $q.defer();
-		$http.post(baseUrl + "client/ClientController/insert_client",client).then(function(resp){
+		$http.post(baseUrl + "client/ClientController/users",client).then(function(resp){
 			return defer.resolve(resp.data);
 		},function(error){
 			defer.reject();

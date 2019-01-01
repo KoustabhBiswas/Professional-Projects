@@ -29,7 +29,7 @@ app.controller('CaseController',function(CaseService,$scope,$window){
                                 .then(
                                     function(resp){
                                         console.log(resp);
-                                        $window.location.href = "/law/dlf/case"; 
+                                        $window.location.href = "/law/dlf/admin/case"; 
                                     });
                     }
 

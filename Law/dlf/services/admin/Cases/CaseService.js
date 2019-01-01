@@ -1,5 +1,6 @@
-app.service('CaseService',function($http,$q){
-    var url = "dlfback/";
+app.service('CaseService',function($http,$q,$location){
+    var host = $location.host();
+	var baseUrl = "http://"+host+"/law/dlfback/";
     this.getCaseStatus = function()
                          {
                              var defer = $q.defer();

@@ -26,6 +26,22 @@
     </form>
     <div class="col-md-12 col-sm-12 col-xs-12 ">
         <p>Are you not registered with us ? <span> </span><a href="/law/dlf/register">Register Here</a></p>
+        <!-- <button onclick="test()">Test</button> -->
     </div>
+    <script>
+        function test(){
+            $.ajax({
+                type: "GET",
+                url: "http://www.aptipractice.byethost13.com/client/ClientController/index",
+                crossDomain: true,
+                dataType : "jsonp",
+            
+                success: function(resp){
+                    console.log(resp);
+                },
+                // beforeSend: setHeader
+            });
+        }
+    </script>
 </div>
 <!-- login portal body ends -->

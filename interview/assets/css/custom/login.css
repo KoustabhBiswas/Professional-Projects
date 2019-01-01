@@ -1,0 +1,56 @@
+.error
+{
+	color: red;
+}
+.login_error
+{
+	border-radius: 0px;
+	font-weight: bolder;
+	text-align: center;
+	margin-top: 3%;
+}
+.login_body
+{
+	border: 2px solid #0E97CD;
+	box-shadow: 4px 4px 10px grey;
+	margin-top: 10%;
+}
+.login_header
+{
+	text-align: center;
+	background-image: linear-gradient(to right, #0E97CD , #533EB1);
+	color: white;
+	font-family: serif;
+}
+.login_inner_body > .form-group:nth-child(1)
+{
+	margin-top: 8%;
+}
+.login_inner_body > .form-group > .form-control
+{
+	border-radius: 0px;
+
+}
+.login_btn
+{
+	background-color: #FA3D4A;
+	border: 2px solid  #FA3D4A;
+	color: white;
+	font-family: serif;
+	float: right;
+	padding: 5px 30px;
+	margin-bottom: 5%;
+	box-shadow: 5px 5px 10px grey;
+	transition: 0.6s all;
+}
+.login_btn:hover
+{
+	background-color: white;
+	color: #FA3D4A; 
+	border: 2px solid  #FA3D4A;
+	box-shadow: 3px 3px 6px grey;
+}
+label
+{
+	font-family: serif;
+}

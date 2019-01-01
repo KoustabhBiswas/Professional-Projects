@@ -29,7 +29,7 @@ app.controller('RegisterController',function(RegisterService,$scope,$rootScope,$
 	self.addUser = function(){
 		
 		RegisterService.addClient(self.user).then(function(data){
-			console.log(data);
+			
 			if(data == 0)
 			{
 				$scope.existingEmail = "Email id already exists";

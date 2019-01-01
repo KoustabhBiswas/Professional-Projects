@@ -25,12 +25,13 @@
 									<!-- <i class="glyphicon glyphicon-cog"></i> -->
 									<span>  Manage Clients</span>
 								</a>
-								<a href="javascript:void(0)" class="table-nav-bar-links " id="add-client" onclick="addClient(event)">
-									<!-- <i class="fa fa-user-plus"></i> -->
+								<!-- <a href="javascript:void(0)" class="table-nav-bar-links " id="add-client" onclick="addClient(event)">
+									
 									<span>  Add Client</span>
-								</a>
+								</a> -->
 
 							</div>
+							
 							<!--================================ table starts =============================-->
 							<div class="row table-body" id="table-body">
 								<table class="table table-responsive" >
@@ -46,19 +47,22 @@
 										<tr ng-repeat="client_details in client.clients">
 											<td>{{client_details.first_name}} {{client_details.middle_name}} {{client_details.last_name}}</td>
 											<td class="mobile-table-column">{{client_details.mobile_no}}</td>
-											<td class="state-table-column">{{client_details.state_id_fk}}</td>
+											<td class="state-table-column">{{client_details.state_name}}</td>
 											<td>
-												<i class="fa fa-eye view-profile-icon"></i>
+												<i class="fa fa-eye view-profile-icon" 
+													ng-click="client.viewClient(client_details.user_id_pk,client_details.first_name)"></i>
 												<!-- <i class="fa fa-pencil edit-icon" ng-click="client.editClient(client_details.user_id_pk)"></i> -->
-												<i class="fa fa-trash-o delete-icon" data-toggle="modal" ng-click="client.deleteClient(client_details.user_id_pk)" ></i>
+												
+												 <i class="fa fa-trash-o delete-icon" data-toggle="modal"  
+													ng-click="client.deleteClient(client_details.user_id_pk,client_details.first_name)"  ></i>  
 												
 											</td>
-							
 										</tr>
 										
 									</tbody>
 								</table>
 							</div>
+							<div client-modal ng-if="client_id != null"></div>
 							<!--================================ table ends ===============================-->
 							
 							<!--================================ form starts =============================-->	
@@ -142,7 +146,15 @@
 											<input type="text" class="form-control" name="pin_code" id="pin_code" ng-model="client.addclient.pin_code" placeholder="Enter Pin Code">
 										</div>										
 									</div>
-
+									<div class="col-md-12 col-sm-12 col-xs-12">
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<div class="form-group">
+												<label>Email Id:</label>
+												<input type="text" ng-model="register.user.email" class="form-control" placeholder="Email">
+												<span class="error">{{existingEmail}}</span>
+											</div>
+										</div>
+									</div>
 									<div class="col-md-12 col-sm-12 col-xs-12">
 										<input type="submit" class="form-control submit_btn" name="" value="Add">
 									</div>
@@ -155,6 +167,7 @@
 						</div>
 					</div>
 				</div>
+				
 				<script type="text/javascript" src="./assets/js/admin-home.js"></script>
 				
 				<!--================================ right bar body ends =============================-->

@@ -1,0 +1,88 @@
+.custom_modal
+{
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	background-color: rgba(0, 0, 0,0.6);
+	
+	/*right: 0;
+	left: 0;*/
+}
+.custom_modal_body
+{
+	position: absolute;
+	margin: 10% 15%;
+	display: table;
+			
+}
+.custom_modal_footer,
+.custom_modal_header
+{
+	text-align: right;
+	height: 40px;
+	background-color: #FF0A43;
+}
+.custom_modal_body_inner
+{
+	/* min-height: 300px;*/
+	max-height: 300px; 
+	height: auto;
+	background-color: white;
+	overflow-y: auto;
+	padding-bottom: 25px;
+	padding-top: 25px;
+}
+
+.custom_modal_footer_link
+{
+		
+	margin-right:  0%;
+}
+.contact_details_header
+{
+	background-color: #FF0A43;
+	color: white;
+	font-family: cursive;
+}
+.contact_details
+{
+	border: 0px solid;
+	margin-top: 0%;
+}
+.contact_details_body
+{
+	border: 1px solid #FF0A43;
+}
+
+.contact_details_inner_body,
+.contact_details_inner_body > div
+{
+	margin-top: 2%;
+}
+/* */
+.edit_icon
+{
+	background-color: #61CA16;
+	color: white;
+	box-shadow: 2px 3px 10px #61CA16,-3px -1px 10px #61CA16;
+	float: right;
+	padding: 6px 7px;
+	border-radius: 50%;
+}
+.custom_modal_footer > a
+{
+	margin: 0.5%;
+	display: inline-block;
+}
+@media only screen and (max-width: 538px){
+	.custom_modal_body
+{
+	position: absolute;
+	margin: 15% 1%;
+	display: table;
+			
+}
+}

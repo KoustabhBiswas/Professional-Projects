@@ -28,7 +28,11 @@ app.config(function($routeProvider,$locationProvider,$httpProvider){
 	
 	
 });
-
+app.directive('clientModal',function(){
+    return {
+        templateUrl: "views/admin/Clients/delete_modal.html"
+    }
+});
 
 app.run(function($rootScope,$location,$cookieStore){
 	
@@ -47,7 +51,7 @@ app.run(function($rootScope,$location,$cookieStore){
 		}
 		else
 		{
-			console.log("HEY");
+			
 			 $location.path();
 
 		}

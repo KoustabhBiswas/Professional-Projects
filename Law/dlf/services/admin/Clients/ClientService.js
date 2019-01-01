@@ -1,8 +1,9 @@
-app.service('ClientService',function($http,$q){
-	var baseUrl = "dlfback/";
+app.service('ClientService',function($http,$q,$location){
+	var host = $location.host();
+	var baseUrl = "http://"+host+"/law/dlfback/";
 	this.getClients = function(){
 		var defer = $q.defer();
-		$http.get(baseUrl + 'client/ClientController/index').then(function(resp){
+		$http.get(baseUrl + 'client/ClientController/index_get').then(function(resp){
 			return defer.resolve(resp.data);
 		},
 		function(error){
@@ -12,7 +13,7 @@ app.service('ClientService',function($http,$q){
 	}
 	this.addClient = function(client){
 		var defer = $q.defer();
-		$http.post(baseUrl + "client/ClientController/insert_client",client).then(function(resp){
+		$http.post(baseUrl + "client/ClientController/users",client).then(function(resp){
 			return defer.resolve(resp.data);
 		},function(error){
 			defer.reject();
@@ -21,7 +22,7 @@ app.service('ClientService',function($http,$q){
 	}
 	this.deleteClient = function(client_id){
 		var defer = $q.defer();
-		$http.get(baseUrl + "client/ClientController/delete_client/" + client_id).then(function(resp){
+		$http.get(baseUrl + "client/ClientController/deleteclient/" + client_id).then(function(resp){
 			return defer.resolve(resp.data);
 		},function(error){
 			defer.reject();
@@ -60,5 +61,19 @@ app.service('ClientService',function($http,$q){
 				);
 			return defer.promise;
 	}
+	this.get_client_by_id = function(client_id)
+							{
+								var defer = $q.defer();
+								$http
+									.get(baseUrl + 'client/ClientController/get_client_by_id/'+ client_id)
+										.then(
+											function(resp){
+											return defer.resolve(resp.data);
+										},
+											function(xhr){
+												defer.reject();
+											});
+								return defer.promise;
+							}
 
 });
